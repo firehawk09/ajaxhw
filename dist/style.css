@@ -815,6 +815,9 @@ abbr[title]:hover {
           box-sizing: border-box; }
 
 /**
+** variables
+**/
+/**
  * GRIDS
  */
 .grid {
@@ -848,26 +851,37 @@ abbr[title]:hover {
  */
 img {
   max-width: 10em;
-  max-height: 10em; }
+  max-height: 10em;
+  -webkit-border-radius: 10px;
+          border-radius: 10px; }
 
 body {
   -webkit-transition: opacity .25s ease;
           transition: opacity .25s ease;
   padding: 0.75em; }
-  body .container {
-    background-color: pink; }
-  body .leftSide {
+  body .left {
+    color: #CEF09D;
     font-family: Times, serif;
-    background-color: red;
+    background-color: #6FACC7;
     position: absolute;
-    min-width: 19em;
-    min-height: 30em; }
-  body .rightSide {
+    width: 19em;
+    min-height: 30em;
+    -webkit-border-radius: 10px;
+            border-radius: 10px; }
+  body .right div {
     position: relative;
     display: block;
     padding-left: 3em;
-    margin-left: 19em;
-    background-color: orange;
-    min-height: 25em;
-    width: 73%; }
+    padding: 0.2em;
+    margin-left: 19.25em;
+    background-color: #C6DBBD;
+    width: 73%;
+    -webkit-border-radius: 10px;
+            border-radius: 10px; }
+  body h2 {
+    color: #2E0927; }
+  body h3 {
+    color: #2E0927; }
+  body h4 {
+    color: #2E0927; }
 

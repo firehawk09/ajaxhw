@@ -8,6 +8,14 @@
 *, *:before, *:after {
     box-sizing: border-box;
 }
+
+
+/**
+** variables
+**/
+$backgroundColor: #2E0927;
+
+
 /**
  * GRIDS
  */
@@ -41,27 +49,37 @@
 img {
     max-width: 10em;
     max-height: 10em;
+    border-radius: 10px;
 }
 body {
     transition: opacity .25s ease;
     padding: 0.75em;
-    .container {
-        background-color: pink;
-    }
-    .leftSide {
+    .left {
+        color:#CEF09D;
         font-family: Times, serif;
-        background-color: red;
+        background-color: #6FACC7;
         position: absolute;
-        min-width: 19em;
+        width: 19em;
         min-height: 30em;
+        border-radius: 10px;
     }
-    .rightSide {
+    .right div {
         position: relative;
         display: block;
         padding-left: 3em;
-        margin-left: 19em;
-        background-color: orange;
-        min-height: 25em;
+        padding: 0.2em;
+        margin-left: 19.25em;
+        background-color: #C6DBBD;
         width: 73%;
+        border-radius: 10px;
+    }
+    h2 {
+        color: $backgroundColor;
+    }
+    h3 {
+        color: $backgroundColor;
+    }
+    h4 {
+        color: $backgroundColor;
     }
 }
