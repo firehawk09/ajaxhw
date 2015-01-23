@@ -1,4 +1,4 @@
-function GithubClient(username, token){
+function GithubClient(username, token) {
     this.username = username;
     this.token = token;
     this.drawToPage();
@@ -8,11 +8,11 @@ function GithubClient(username, token){
 // var githubUsername = "firehawk09";
 
 GithubClient.prototype.getUserInfo = function() {
-    return $.get("http://api.github.com/users/"+this.username+"?access_token="+this.token)
+    return $.get("http://api.github.com/users/" + this.username + "?access_token=" + this.token)
 };
 
 GithubClient.prototype.getReposInfo = function() {
-    return $.get("http://api.github.com/users/"+this.username+"/repos?access_token="+this.token)
+    return $.get("http://api.github.com/users/" + this.username + "/repos?access_token=" + this.token)
 };
 
 GithubClient.prototype.getLeftTemplate = function() {
@@ -23,33 +23,25 @@ GithubClient.prototype.getRightTemplate = function() {
     return $.get("./templates/right.html")
 };
 
-GithubClient.prototype.getAllData = function(){
+GithubClient.prototype.getAllData = function() {
     return $.when(this.getUserInfo(), this.getReposInfo(), this.getLeftTemplate(), this.getRightTemplate())
 };
 
-GithubClient.prototype.drawToPage = function(){
-    this.getAllData().then(function(){
-        //// do something with the arguments...
-            var data = arguments[0]
-            var template = arguments[1]
-            document.getElementsByClassName("left")[0].innerHTML += _.template(template[0], data[0]);
-            var repo = arguments[0][0]
-            var template = arguments[1]
-            repo.forEach(function(value) {
-                document.getElementsByClassName("right")[0].innerHTML += _.template(template[0], value);
+GithubClient.prototype.drawToPage = function() {
+    this.getAllData().then(function() {
+    //// do something with the arguments.
+
+        var userData = arguments[0][0];
+        var profileTemplate = arguments[2][0];
+        var repoData = arguments[1][0];
+        var repoTemplate = arguments[3][0];
+
+        document.getElementsByClassName("left")[0].innerHTML += _.template(profileTemplate, userData);
+
+        repoData.forEach(function(value) {
+            // console.log(value[0]);
+            // console.log(repoTemplate[0]);
+            document.querySelector(".right").innerHTML += _.template(repoTemplate, value);
+        })
     })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
